@@ -124,7 +124,7 @@ void MultiplicationMatrices(int matrice1[RANGEE][COLONNE],int matrice2[RANGEE][C
 				for(int c =0; c < MATRICE_CARREE;c++)
 				{
 					
-					matriceFinal[a][b] += (matrice1[a][c]*matrice1[c][b]);
+					matriceFinal[a][b] += (matrice1[a][c]*matrice2[c][b]);
 					
 					
 				}

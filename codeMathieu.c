@@ -6,27 +6,67 @@
 
 int DetecterPalindrome(char valeur[]);
 void AdditionMatrices(int[RANGEE][COLONNE],int[RANGEE][COLONNE],int[RANGEE][COLONNE]);
-void MultiplicationMatrices(int[RANGEE][COLONNE],int[RANGEE][COLONNE],int[RANGEE][COLONNE]);
+void MultiplicationMatrices(int[MATRICE_CARREE][MATRICE_CARREE],int[MATRICE_CARREE][MATRICE_CARREE],int[MATRICE_CARREE][MATRICE_CARREE]);
 void AfficherMatrice(int[RANGEE][COLONNE]);
+void PlanDeTest();
 
 
-int main(int argc, char **argv)
+
+
+void PlanDeTest()
 {
-	/*char valeur[] = {"ressasser"};
+	//Valide la fonction DetecterPalindrome
+	//Test1 laval
+	char valeur[] = {"laval"};
 	int confirmation = 0;
 	
+	printf("------------------------VALIDATION PALINDROME----------------------------\n");
 	confirmation = DetecterPalindrome(valeur);
+	printf("%s",valeur);
+	printf(" : ");
 	if(confirmation == 1)
 	{
 		printf("vraie");
-		
 	}
-	else{
-		
-			printf("Faux");
-			
-		}*/
-		
+	else
+	{
+			printf("Faux");	
+	}
+	printf("\n");
+	
+	//Test 2 LAVAL
+	confirmation = DetecterPalindrome("LAVAL");
+	printf("%s","LAVAL");
+	printf(" : ");
+	if(confirmation == 1)
+	{
+		printf("vraie");
+	}
+	else
+	{
+			printf("Faux");	
+	}
+	printf("\n");
+	
+	//Test 3 LAval
+	confirmation = DetecterPalindrome("LAval");
+	printf("%s","LAval");
+	printf(" : ");
+	if(confirmation == 1)
+	{
+		printf("vraie");
+	}
+	else
+	{
+			printf("Faux");	
+	}
+	printf("\n");
+	printf("\n");
+	
+	//Validation de la fonction AdditionMatrices
+	printf("------------------------VALIDATION Addition de matrice----------------------------\n");
+	
+	//Test 1 
 	int matriceAdd1[RANGEE][COLONNE]={	{1,2,3},
 										{4,5,6},
 										{7,8,9}};	
@@ -38,19 +78,79 @@ int main(int argc, char **argv)
 	int matriceAdd3[RANGEE][COLONNE]={	{0,0,0},
 										{0,0,0},
 										{0,0,0}};	
-									
 										
-								  
-									  
-	//AdditionMatrices(matriceAdd1,matriceAdd2,matriceAdd3);
-	MultiplicationMatrices(matriceAdd1,matriceAdd2,matriceAdd3);
-	AfficherMatrice(matriceAdd3);										
+	AdditionMatrices(matriceAdd1,matriceAdd2,matriceAdd3);
+	
+	AfficherMatrice(matriceAdd1);
+	printf(" +\n");
+	AfficherMatrice(matriceAdd2);
+	printf(" =\n");
+	AfficherMatrice(matriceAdd3);
+	printf("\n\n\n\n\n");
+	
+	//Test2
+	
+	int matriceAdd4[RANGEE][COLONNE]={	{-1,-2,-3},
+										{-4,-5,-6},
+										{-7,-8,-9}};	
+
+	int matriceAdd5[RANGEE][COLONNE]={	{1,2,3},
+										{4,5,6},
+										{7,8,9}};	
+										
+	int matriceAdd6[RANGEE][COLONNE]={	{1,1,1},
+										{1,1,1},
+										{1,1,1}};	
+										
+	AdditionMatrices(matriceAdd4,matriceAdd5,matriceAdd6);
+	
+	AfficherMatrice(matriceAdd1);
+	printf(" +\n");
+	AfficherMatrice(matriceAdd2);
+	printf(" =\n");
+	AfficherMatrice(matriceAdd3);
+	printf("\n\n\n\n\n");
+	
+	//Test3 2x2
+	/*int matriceAdd7[2][2]={	{2,3},
+							{5,-6}};
+											
+
+	int matriceAdd8[2][2]={	{5,2},
+							{-4,7}};
+										
+	int matriceAdd9[2][2]={	{0,0},
+							{0,0}};	
+										
+	AdditionMatrices(matriceAdd7,matriceAdd8,matriceAdd9);
+	
+	AfficherMatrice(matriceAdd7);
+	printf(" +\n");
+	AfficherMatrice(matriceAdd8);
+	printf(" =\n");
+	AfficherMatrice(matriceAdd9);
+	printf("\n\n\n\n\n");*/
+	
+	//Test4
+	
+	//MultiplicationMatrices(matriceAdd1,matriceAdd2,matriceAdd3);
+	//AfficherMatrice(matriceAdd3);										
 		
-		
-		
-		
-		
-		
+	
+	
+	
+	
+	
+	
+}
+
+
+
+
+int main(int argc, char **argv)
+{
+	
+    PlanDeTest();	
 	return 0;
 }
 
@@ -71,14 +171,15 @@ int DetecterPalindrome(char valeur[])
 
 	compteur = longueurValeur;
 	
-	for(int i =0; i< compteur-1;i++)
+	for(int i =0; i< compteur;i++)
 	{
+		
 		longueurValeur--;
 		if(valeur[i] != valeur[longueurValeur])
 		{
 			
 			return 0;
-			}
+		}
 		
 	}
 	
@@ -108,7 +209,7 @@ void AdditionMatrices(int matrice1[RANGEE][COLONNE],int matrice2[RANGEE][COLONNE
 }
 
 
-void MultiplicationMatrices(int matrice1[RANGEE][COLONNE],int matrice2[RANGEE][COLONNE],int matriceFinal[RANGEE][COLONNE])
+void MultiplicationMatrices(int matrice1[MATRICE_CARREE][MATRICE_CARREE],int matrice2[MATRICE_CARREE][MATRICE_CARREE],int matriceFinal[MATRICE_CARREE][MATRICE_CARREE])
 {
 	
 
@@ -157,7 +258,8 @@ void AfficherMatrice(int matrice[RANGEE][COLONNE])
 				printf(" ");
 
 			}
-		printf("|\n");
+		 printf("|\n");
+		 
 	}
 }
 
